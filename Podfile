@@ -4,7 +4,8 @@ use_frameworks!
 
 target 'Marvel' do
 
-pod 'Alamofire','~> 1.3'
+pod 'Alamofire', '~> 3.0'
+pod 'RealmSwift'
 
 end
 
