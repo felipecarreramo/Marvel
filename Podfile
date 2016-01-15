@@ -4,12 +4,10 @@ use_frameworks!
 
 target 'Marvel' do
 
-pod 'Alamofire', '~> 3.0'
-pod 'RealmSwift'
+    pod 'RealmSwift',  '~> 0.96.3'
+    pod 'Alamofire', '~> 3.0'
+    pod 'AlamofireObjectMapper', '~> 2.1'
 
 end
 
-target 'MarvelTests' do
-
-end
 
