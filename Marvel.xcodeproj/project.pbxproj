@@ -14,6 +14,8 @@
 		7EB3F5691B67176E002949D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB3F5671B67176E002949D0 /* LaunchScreen.xib */; };
 		7EB3F5751B67176E002949D0 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB3F5741B67176E002949D0 /* MarvelTests.swift */; };
 		C744CBCB1C3F1EA70024E61D /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744CBCA1C3F1EA70024E61D /* Comic.swift */; };
+		C74FF8541C4D6B3E0094E746 /* ComicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FF8531C4D6B3E0094E746 /* ComicsViewModel.swift */; };
+		C74FF8571C4D812C0094E746 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FF8561C4D812C0094E746 /* ComicCollectionViewCell.swift */; };
 		C77B660F1C40127500650F24 /* MarvelNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B660E1C40127500650F24 /* MarvelNetworkAccess.swift */; };
 		C77B66121C4028A200650F24 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B66111C4028A200650F24 /* StringExtensions.swift */; };
 		C7F386701C495D4700C7CB48 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F3866F1C495D4700C7CB48 /* MainViewController.swift */; };
@@ -42,6 +44,8 @@
 		7EB3F5741B67176E002949D0 /* MarvelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTests.swift; sourceTree = "<group>"; };
 		81BDDC03D09315AC921F5927 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		C744CBCA1C3F1EA70024E61D /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comic.swift; path = Models/Comic.swift; sourceTree = "<group>"; };
+		C74FF8531C4D6B3E0094E746 /* ComicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicsViewModel.swift; path = ViewModels/ComicsViewModel.swift; sourceTree = "<group>"; };
+		C74FF8561C4D812C0094E746 /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicCollectionViewCell.swift; path = Views/Cells/ComicCollectionViewCell.swift; sourceTree = "<group>"; };
 		C77B660E1C40127500650F24 /* MarvelNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelNetworkAccess.swift; path = Helpers/MarvelNetworkAccess.swift; sourceTree = "<group>"; };
 		C77B66111C4028A200650F24 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Utils/StringExtensions.swift; sourceTree = "<group>"; };
 		C77B661B1C402B8D00650F24 /* Marvel_Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel_Bridging-Header.h"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		C744CBC41C3EC9060024E61D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C74FF8551C4D810C0094E746 /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 		C744CBC61C3EC9190024E61D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C74FF8531C4D6B3E0094E746 /* ComicsViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -193,6 +199,14 @@
 				C77B660E1C40127500650F24 /* MarvelNetworkAccess.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C74FF8551C4D810C0094E746 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C74FF8561C4D812C0094E746 /* ComicCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		C77B66101C40288600650F24 /* Utils */ = {
@@ -355,6 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74FF8571C4D812C0094E746 /* ComicCollectionViewCell.swift in Sources */,
+				C74FF8541C4D6B3E0094E746 /* ComicsViewModel.swift in Sources */,
 				C744CBCB1C3F1EA70024E61D /* Comic.swift in Sources */,
 				C77B66121C4028A200650F24 /* StringExtensions.swift in Sources */,
 				7EB3F55F1B67176E002949D0 /* AppDelegate.swift in Sources */,

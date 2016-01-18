@@ -7,6 +7,7 @@ target 'Marvel' do
     pod 'RealmSwift',  '~> 0.96.3'
     pod 'Alamofire', '~> 3.0'
     pod 'AlamofireObjectMapper', '~> 2.1'
+    pod 'SDWebImage', '~>3.7'
 
 end
 

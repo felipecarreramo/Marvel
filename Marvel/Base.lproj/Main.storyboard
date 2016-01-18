@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -16,11 +17,73 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l05-JU-LSP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zIl-y1-Txf">
+                                    <size key="itemSize" width="250" height="250"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="25" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ComicInCollection" id="35w-28-6mP" customClass="ComicCollectionViewCell" customModule="Marvel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="75" width="250" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BT9-hg-bh9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-vz-ong">
+                                                    <rect key="frame" x="0.0" y="173" width="250" height="44"/>
+                                                    <color key="backgroundColor" red="0.44171302356020936" green="0.44171302356020936" blue="0.44171302356020936" alpha="0.70772384751773054" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="BT9-hg-bh9" secondAttribute="bottom" constant="-8" id="Dbr-EH-ZAV"/>
+                                            <constraint firstItem="BT9-hg-bh9" firstAttribute="leading" secondItem="35w-28-6mP" secondAttribute="leadingMargin" constant="-8" id="H0y-nZ-WUe"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="BT9-hg-bh9" secondAttribute="trailing" constant="-8" id="LBP-DW-Ra4"/>
+                                            <constraint firstItem="BT9-hg-bh9" firstAttribute="top" secondItem="35w-28-6mP" secondAttribute="topMargin" constant="-8" id="lOB-hl-AAh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="thumbnail" destination="BT9-hg-bh9" id="ZEG-yX-q5g"/>
+                                            <outlet property="titleLbl" destination="LGY-vz-ong" id="ceJ-pH-PPf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="pyI-O5-Qz8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="ZhA-c0-qlS"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="4bg-Mp-tLi"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l05-JU-LSP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="IK0-yu-I2x"/>
+                            <constraint firstItem="l05-JU-LSP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Jih-LU-fco"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="l05-JU-LSP" secondAttribute="bottom" id="h3f-Je-qFb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l05-JU-LSP" secondAttribute="trailing" constant="-20" id="jxE-Wf-hVa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="comicsCollection" destination="l05-JU-LSP" id="7xK-cf-Cil"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="278" y="156"/>
         </scene>
     </scenes>
 </document>

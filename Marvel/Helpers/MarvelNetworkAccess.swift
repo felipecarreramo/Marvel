@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import ObjectMapper
 
 class MarvelNetworkAccess {
     
@@ -23,7 +24,7 @@ class MarvelNetworkAccess {
     var currentRequest: Request?
     
     
-    func request(method: Alamofire.Method, endpoint: String, var params: [String: AnyObject]? = nil, completion: (response: NSHTTPURLResponse, error: NSError?) -> ()) -> MarvelNetworkAccess {
+    func request(method: Alamofire.Method, endpoint: String, var params: [String: AnyObject]? = nil) -> Self {
     
         params = addAuthorization(params)
         currentRequest = Alamofire.request(method, "\(baseURLString)/\(endpoint)", parameters: params, encoding: .URL, headers: headers)
@@ -31,10 +32,27 @@ class MarvelNetworkAccess {
         return self
     }
     
-    func responseArray(){
+    func responseArray<T:Mappable>(completion:(values:[T]?, error: NSError?) -> ()){
         
+        if let currentRequest = currentRequest {
+            currentRequest.responseArray("data.results", completionHandler: { (response:Response<[T], NSError>) in
+                
+                switch response.result {
+                case .Success(let values):
+                    completion(values: values, error: nil)
+                case .Failure(let error):
+                    completion(values: nil, error: error)
+                }
+                
+            })
+        }else {
+            completion(values: nil, error: NSError(domain: "MNotRequest", code: 404, userInfo: [:]))
+        }
     }
     
+    func responseObject<T:Mappable>(completion:(value:T, error: NSError?)){
+        
+    }
     
     private func addAuthorization(var params: [String: AnyObject]?) -> [String: AnyObject]?{
         
