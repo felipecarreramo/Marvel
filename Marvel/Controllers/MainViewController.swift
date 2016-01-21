@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let viewModel = ComicsViewModel()
     
@@ -37,7 +37,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let collectionCell = collectionView.dequeueReusableCellWithReuseIdentifier("ComicInCollection", forIndexPath: indexPath) as? ComicCollectionViewCell {
-            collectionCell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.yellowColor() : UIColor.greenColor()
             collectionCell.setupCell( viewModel.comics![indexPath.row])
             return collectionCell
         }else {
@@ -45,7 +44,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(collectionView.frame.width / 2, 250 )
+    }
     
     
 
