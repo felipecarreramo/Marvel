@@ -12,6 +12,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let viewModel = ComicsViewModel()
     
+    private let segueComicDetail = "showComicDetail"
+    
     @IBOutlet weak var comicsCollection: UICollectionView!
 
     override func viewDidLoad() {
@@ -44,10 +46,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        viewModel.selectedComic = viewModel.comics?[indexPath.row]
+        performSegueWithIdentifier(segueComicDetail, sender: nil)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(collectionView.frame.width / 2, 250 )
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == segueComicDetail {
+            if let destinationViewController = segue.destinationViewController as? ComicDetailViewController, let selectedComic = viewModel.selectedComic {
+                destinationViewController.viewModel.comic = selectedComic
+            }
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {

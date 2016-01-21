@@ -12,6 +12,7 @@ import Foundation
 class ComicsViewModel {
     
     var comics: [Comic]?
+    var selectedComic: Comic?
     
     func allComics(completion:(comics: [Comic]?, error: NSError?)->()){
         

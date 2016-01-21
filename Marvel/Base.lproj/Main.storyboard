@@ -37,7 +37,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BT9-hg-bh9">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-vz-ong">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-vz-ong">
                                                     <rect key="frame" x="0.0" y="173" width="250" height="44"/>
                                                     <color key="backgroundColor" red="0.44171302356020936" green="0.44171302356020936" blue="0.44171302356020936" alpha="0.70772384751773054" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -85,11 +85,30 @@
                     </view>
                     <connections>
                         <outlet property="comicsCollection" destination="l05-JU-LSP" id="7xK-cf-Cil"/>
+                        <segue destination="fll-vr-Q6A" kind="show" identifier="showComicDetail" action="showDetailViewController:sender:" id="xO2-wh-mg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="156"/>
+            <point key="canvasLocation" x="255" y="113"/>
+        </scene>
+        <!--Comic Detail View Controller-->
+        <scene sceneID="k7O-lE-bQZ">
+            <objects>
+                <viewController id="fll-vr-Q6A" customClass="ComicDetailViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OMK-Aw-aoe"/>
+                        <viewControllerLayoutGuide type="bottom" id="rVL-9p-5gQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ori-t2-kU3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqK-Xo-wfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="156"/>
         </scene>
     </scenes>
 </document>
