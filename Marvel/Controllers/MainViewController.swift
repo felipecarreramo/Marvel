@@ -60,6 +60,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        viewModel.retrieveMoreComicsOnScroll(scrollView) { success, error in
+            if success {
+                self.comicsCollection.reloadData()
+            }
+            
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
