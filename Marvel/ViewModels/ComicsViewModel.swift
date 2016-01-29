@@ -20,6 +20,7 @@ class ComicsViewModel {
     private var retrieving = false
     
     private let kCellIdentifier = "ComicInCollection"
+    let kFooterIdentifier = "FooterIdentifier"
     
     func numberOfItemsInCollection() -> Int {
         return comics.count
@@ -68,5 +69,6 @@ class ComicsViewModel {
         }
 
     }
+
     
 }

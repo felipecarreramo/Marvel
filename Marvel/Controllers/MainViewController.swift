@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let viewModel = ComicsViewModel()
+    var loaderScroll: LoaderScroll?
+    
     
     private let segueComicDetail = "showComicDetail"
     
@@ -18,6 +20,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         viewModel.retrieveComics { comics, error in
             guard let _ = error else {
                 self.comicsCollection.reloadData()
@@ -61,7 +67,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        loaderScroll?.show()
         viewModel.retrieveMoreComicsOnScroll(scrollView) { success, error in
+            self.loaderScroll?.hide()
             if success {
                 self.comicsCollection.reloadData()
             }
@@ -69,6 +77,17 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: viewModel.kFooterIdentifier, forIndexPath: indexPath)
+        
+        
+        loaderScroll = LoaderScroll(inView: view)
+        if let loaderScroll = loaderScroll {
+            view.addSubview(loaderScroll)
+        }
+        
+        return view
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
