@@ -17,9 +17,16 @@ class ComicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     
     
-    func setupCell(comic: Comic) {
-        thumbnail.sd_setImageWithURL( NSURL(string: "\(comic.thumbnail).\(comic.thumbnailExtension)" ))
-        titleLbl.text = "\(comic.title)  "
+    func setupCell(urlStringThumb: String?, title: String?) {
+        if let urlStringThumb = urlStringThumb {
+            thumbnail.sd_setImageWithURL( NSURL(string: urlStringThumb))
+        }
+        
+        titleLbl.text = title
+    }
+    
+    class func cellSize(containerWidth: CGFloat) -> CGSize {
+        return CGSizeMake(containerWidth / 2, 250 )
     }
     
 }

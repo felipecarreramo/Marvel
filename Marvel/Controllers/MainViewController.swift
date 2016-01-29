@@ -18,12 +18,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.allComics { comics, error in
+        viewModel.retrieveComics { comics, error in
             guard let _ = error else {
                 self.comicsCollection.reloadData()
                 return
             }
             
+            print(error)
         }
     }
     
@@ -33,26 +34,21 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.comics == nil ? 0: viewModel.comics!.count
+        return viewModel.numberOfItemsInCollection()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if let collectionCell = collectionView.dequeueReusableCellWithReuseIdentifier("ComicInCollection", forIndexPath: indexPath) as? ComicCollectionViewCell {
-            collectionCell.setupCell( viewModel.comics![indexPath.row])
-            return collectionCell
-        }else {
-            return ComicCollectionViewCell()
-        }
+        return viewModel.setupCollectionViewCell(indexPath, collectionView: collectionView)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        viewModel.selectedComic = viewModel.comics?[indexPath.row]
+        viewModel.selectComicAtIndex(indexPath)
         performSegueWithIdentifier(segueComicDetail, sender: nil)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(collectionView.frame.width / 2, 250 )
+        return ComicCollectionViewCell.cellSize(collectionView.frame.width)
     }
     
     

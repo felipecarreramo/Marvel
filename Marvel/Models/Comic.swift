@@ -44,4 +44,18 @@ class Comic: Object, Mappable {
 
     }
     
+    class func retrieveComics(params:[String: AnyObject]? = nil, completion:(comics: [Comic]?, error: NSError?)->()){
+        
+        MarvelNetworkAccess().request(.GET, endpoint: "v1/public/comics", params: params)
+            .responseArray { (values: [Comic]?, error: NSError?) in
+                guard let _ = error else {
+                    completion(comics: values, error: nil)
+                    return
+                }
+                
+                completion(comics: nil, error: error)
+        }
+        
+    }
+    
 }

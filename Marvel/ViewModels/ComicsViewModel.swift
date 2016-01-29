@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class ComicsViewModel {
@@ -14,19 +15,36 @@ class ComicsViewModel {
     var comics: [Comic]?
     var selectedComic: Comic?
     
-    func allComics(completion:(comics: [Comic]?, error: NSError?)->()){
-        
-        MarvelNetworkAccess().request(.GET, endpoint: "v1/public/comics")
-            .responseArray { (values: [Comic]?, error: NSError?) in
-                guard let _ = error else {
-                    self.comics = values
-                    completion(comics: values, error: nil)
-                    return
-                }
-                
-                completion(comics: nil, error: error)
+    private let kCellIdentifier = "ComicInCollection"
+    
+    func numberOfItemsInCollection() -> Int {
+        var numberOfItems = 0
+        if let comics = comics {
+            numberOfItems = comics.count
         }
-        
+        return numberOfItems
+    }
+    
+    func setupCollectionViewCell(indexPath: NSIndexPath, collectionView: UICollectionView) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as? ComicCollectionViewCell {
+            
+            let comic = comics?[indexPath.row]
+            cell.setupCell("\(comic?.thumbnail ?? "").\(comic?.thumbnailExtension ?? "")", title: comic?.title)
+            return cell
+        }else {
+            return UICollectionViewCell()
+        }
+    }
+    
+    func selectComicAtIndex(indexPath: NSIndexPath) {
+        selectedComic = comics?[indexPath.row]
+    }
+    
+    func retrieveComics(completion:(comics: [Comic]?, error: NSError?)->()){
+        Comic.retrieveComics { comics, error in
+            self.comics = comics
+            completion(comics: comics, error: error)
+        }
     }
     
 }
