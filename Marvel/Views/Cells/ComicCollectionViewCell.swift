@@ -26,7 +26,7 @@ class ComicCollectionViewCell: UICollectionViewCell {
     }
     
     class func cellSize(containerWidth: CGFloat) -> CGSize {
-        return CGSizeMake(containerWidth / 2, 250 )
+        return CGSizeMake(containerWidth / 2, (containerWidth / 2) * 1.15 )
     }
     
 }

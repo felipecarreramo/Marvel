@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D7Y-Kj-PAG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l05-JU-LSP">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l05-JU-LSP">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zIl-y1-Txf">
                                     <size key="itemSize" width="250" height="250"/>
@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ComicInCollection" id="35w-28-6mP" customClass="ComicCollectionViewCell" customModule="Marvel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="25" width="250" height="250"/>
+                                        <rect key="frame" x="0.0" y="89" width="250" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
@@ -62,11 +62,12 @@
                                         <connections>
                                             <outlet property="thumbnail" destination="BT9-hg-bh9" id="ZEG-yX-q5g"/>
                                             <outlet property="titleLbl" destination="LGY-vz-ong" id="ceJ-pH-PPf"/>
+                                            <segue destination="fll-vr-Q6A" kind="show" identifier="showComicDetail" id="4sj-Wg-xYG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterIdentifier" id="hKY-Ix-GLI">
-                                    <rect key="frame" x="0.0" y="275" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="339" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                                 <connections>
@@ -83,14 +84,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="l05-JU-LSP" secondAttribute="trailing" constant="-20" id="jxE-Wf-hVa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7Z9-Mf-zML"/>
                     <connections>
                         <outlet property="comicsCollection" destination="l05-JU-LSP" id="7xK-cf-Cil"/>
-                        <segue destination="fll-vr-Q6A" kind="show" identifier="showComicDetail" action="showDetailViewController:sender:" id="xO2-wh-mg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="113"/>
+            <point key="canvasLocation" x="1067" y="113"/>
         </scene>
         <!--Comic Detail View Controller-->
         <scene sceneID="k7O-lE-bQZ">
@@ -108,7 +109,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqK-Xo-wfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="156"/>
+            <point key="canvasLocation" x="1979" y="156"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1xw-sv-62N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D7Y-Kj-PAG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3xh-Dc-hpE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="8JX-Is-0Zu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSu-dv-glG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="255" y="113"/>
         </scene>
     </scenes>
 </document>

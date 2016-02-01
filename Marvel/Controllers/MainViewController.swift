@@ -48,11 +48,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return viewModel.setupCollectionViewCell(indexPath, collectionView: collectionView)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        viewModel.selectComicAtIndex(indexPath)
-        performSegueWithIdentifier(segueComicDetail, sender: nil)
-    }
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return ComicCollectionViewCell.cellSize(collectionView.frame.width)
     }
@@ -60,7 +55,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueComicDetail {
-            if let destinationViewController = segue.destinationViewController as? ComicDetailViewController, let selectedComic = viewModel.selectedComic {
+            if let selectedComic = viewModel.selectedComic(comicsCollection), let destinationViewController = segue.destinationViewController as? ComicDetailViewController {
                 destinationViewController.viewModel.comic = selectedComic
             }
         }
@@ -73,7 +68,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             if success {
                 self.comicsCollection.reloadData()
             }
-            
         }
     }
     

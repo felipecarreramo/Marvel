@@ -37,8 +37,12 @@ class ComicsViewModel {
         }
     }
     
-    func selectComicAtIndex(indexPath: NSIndexPath) {
-        selectedComic = comics[indexPath.row]
+    func selectedComic(collectionView: UICollectionView) -> Comic?{
+        if let indexPathSelectedComic = collectionView.indexPathsForSelectedItems()?.first{
+            return comics[indexPathSelectedComic.row]
+        }
+        
+        return nil
     }
     
     func retrieveComics(params: [String: AnyObject]? = nil, completion:(comics: [Comic]?, error: NSError?)->()){
