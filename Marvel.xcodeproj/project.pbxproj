@@ -25,6 +25,7 @@
 		C77B660F1C40127500650F24 /* MarvelNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B660E1C40127500650F24 /* MarvelNetworkAccess.swift */; };
 		C77B66121C4028A200650F24 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B66111C4028A200650F24 /* StringExtensions.swift */; };
 		C7F386701C495D4700C7CB48 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F3866F1C495D4700C7CB48 /* MainViewController.swift */; };
+		C7FF50DD1C6005230050254A /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF50DC1C6005230050254A /* FlipPresentAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C77B66111C4028A200650F24 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Utils/StringExtensions.swift; sourceTree = "<group>"; };
 		C77B661B1C402B8D00650F24 /* Marvel_Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel_Bridging-Header.h"; sourceTree = "<group>"; };
 		C7F3866F1C495D4700C7CB48 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		C7FF50DC1C6005230050254A /* FlipPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlipPresentAnimationController.swift; path = Views/Transitions/FlipPresentAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		C744CBC41C3EC9060024E61D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C7FF50DB1C6004F60050254A /* Transitions */,
 				C76563001C5BB3A200D7C0D1 /* Loader */,
 				C74FF8551C4D810C0094E746 /* Cells */,
 			);
@@ -241,6 +244,14 @@
 				7EBB20221C507AE0005C6F61 /* Navigation.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		C7FF50DB1C6004F60050254A /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				C7FF50DC1C6005230050254A /* FlipPresentAnimationController.swift */,
+			);
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +411,7 @@
 				7EBB201F1C5073A1005C6F61 /* ComicDetailViewModel.swift in Sources */,
 				7EBB20231C507AE0005C6F61 /* Navigation.swift in Sources */,
 				C74FF8571C4D812C0094E746 /* ComicCollectionViewCell.swift in Sources */,
+				C7FF50DD1C6005230050254A /* FlipPresentAnimationController.swift in Sources */,
 				C74FF8541C4D6B3E0094E746 /* ComicsViewModel.swift in Sources */,
 				C744CBCB1C3F1EA70024E61D /* Comic.swift in Sources */,
 				C77B66121C4028A200650F24 /* StringExtensions.swift in Sources */,
