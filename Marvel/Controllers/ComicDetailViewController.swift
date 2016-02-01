@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ComicDetailViewController: UIViewController {
+class ComicDetailViewController: BaseViewController {
     
     let viewModel = ComicDetailViewModel()
     
